@@ -1,0 +1,16 @@
+{
+  "overrides": [
+    {
+      "files": "*.ts",
+      "options": {
+        "proseWrap": "preserve"
+      }
+    },
+    {
+      "files": "*.tsx",
+      "options": {
+        "proseWrap": "preserve"
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
-import axios from "axios";
-import { NextResponse } from "next/server";
-import { z } from "zod";
+import axios from 'axios'
+import { NextResponse } from 'next/server'
+import { z } from 'zod'
 
 const bodySchema = z.object({
   name: z.string(),
@@ -18,35 +18,34 @@ export async function POST(request: Request) {
     const messageData = {
       embeds: [
         {
-          "type": "rich",
-          "title": 'Mensagem de contato',
-          "description": "",
-          "color": 0x4983f5,
-          "fields": [
+          type: "rich",
+          title: "Mensagem de contato",
+          description: "",
+          color: 0x4983f5,
+          fields: [
             {
-                "name": `Nome`,
-                "value": name,
-                "inline": true
+              name: `Nome`,
+              value: name,
+              inline: true,
             },
             {
-                "name": `E-mail`,
-                "value": email,
-                "inline": true
+              name: `E-mail`,
+              value: email,
+              inline: true,
             },
             {
-                "name": `Mensagem`,
-                "value": message
-            }
-          ]
+              name: `Mensagem`,
+              value: message,
+            },
+          ],
         },
       ],
     };
 
-    await axios.post(WEBHOOK_URL, messageData)
+    await axios.post(WEBHOOK_URL, messageData);
     return NextResponse.json({
-        message: 'Mensagem enviada com sucesso!'
-    })
-
+      message: "Mensagem enviada com sucesso!",
+    });
   } catch (err) {
     console.error(err);
     return NextResponse.error();
