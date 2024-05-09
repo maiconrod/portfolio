@@ -1,14 +1,14 @@
 'use client'
 
-import Link from "next/link";
-import ProjectCard from "./project-card";
-import { Project } from "@/app/types/projects";
-import { motion } from "framer-motion";
-import { fadeUpAnimation } from "@/app/lib/animations";
+import Link from 'next/link'
+import ProjectCard from './project-card'
+import { Project } from '@/app/types/projects'
+import { motion } from 'framer-motion'
+import { fadeUpAnimation } from '@/app/lib/animations'
 
 type ProjectsListProps = {
-  projects: Project[];
-};
+  projects: Project[]
+}
 
 const ProjectsList = ({ projects }: ProjectsListProps) => {
   return (
@@ -25,7 +25,7 @@ const ProjectsList = ({ projects }: ProjectsListProps) => {
         </motion.div>
       ))}
     </section>
-  );
-};
+  )
+}
 
 export default ProjectsList;

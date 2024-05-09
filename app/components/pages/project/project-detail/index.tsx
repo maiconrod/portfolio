@@ -1,20 +1,20 @@
-"use client";
+'use client'
 
-import Button from "@/app/components/button";
-import { SectionTitle } from "@/app/components/section-title";
-import TechBadge from "@/app/components/tech-badge";
-import { TbBrandGithub } from "react-icons/tb";
-import { FiGlobe } from "react-icons/fi";
-import Link from "@/app/components/link";
-import { HiArrowNarrowLeft } from "react-icons/hi";
-import { Project } from "@/app/types/projects";
-import { RichText } from "@/app/components/rich-text";
-import { motion } from "framer-motion";
-import { fadeUpAnimation, techBadgeAnimation } from "@/app/lib/animations";
+import Button from '@/app/components/button'
+import { SectionTitle } from '@/app/components/section-title'
+import TechBadge from '@/app/components/tech-badge'
+import { TbBrandGithub } from 'react-icons/tb'
+import { FiGlobe } from 'react-icons/fi'
+import Link from '@/app/components/link'
+import { HiArrowNarrowLeft } from 'react-icons/hi'
+import { Project } from '@/app/types/projects'
+import { RichText } from '@/app/components/rich-text'
+import { motion } from 'framer-motion'
+import { fadeUpAnimation, techBadgeAnimation } from '@/app/lib/animations'
 
 type ProjectDetailsProps = {
-  project: Project;
-};
+  project: Project
+}
 
 const ProjectDetails = ({ project }: ProjectDetailsProps) => {
   return (
@@ -30,7 +30,7 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
       />
 
       <SectionTitle
-        subtitle="projetos"
+        subtitle='projetos'
         title={project.title}
         className="text-center items-center sm:[&>h3]:text-4xl"
       />
@@ -55,7 +55,7 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
       {...fadeUpAnimation}
       >
         {project?.githubUrl && (
-          <a href={project.githubUrl} target="_blank">
+          <a href={project.githubUrl} target='_blank'>
             <Button className="min-w-[180px]">
               <TbBrandGithub size={20} />
               Repositório
@@ -63,7 +63,7 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
           </a>
         )}
         {project.liveProjectUrl && (
-          <a href={project.liveProjectUrl} target="_blank">
+          <a href={project.liveProjectUrl} target='_blank'>
             <Button className="min-w-[180px]">
               <FiGlobe size={20} />
               Projeto Online
@@ -71,12 +71,12 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
           </a>
         )}
       </motion.div>
-      <Link href="/projects">
+      <Link href='/projects'>
         <HiArrowNarrowLeft size={20} />
         Voltar para projetos
       </Link>
     </section>
-  );
-};
+  )
+}
 
 export default ProjectDetails;

@@ -1,8 +1,8 @@
-import { Project } from "@/app/types/projects";
-import Image from "next/image";
+import { Project } from '@/app/types/projects'
+import Image from 'next/image'
 
 type ProjectCardProps = {
-  project: Project;
+  project: Project
 };
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
@@ -31,7 +31,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         </span>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default ProjectCard;

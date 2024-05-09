@@ -1,9 +1,9 @@
 'use client'
 
-import Image from "next/image";
-import Link from "next/link";
-import NavItem from "./nav-item";
-import { motion } from "framer-motion";
+import Image from 'next/image'
+import Link from 'next/link'
+import NavItem from './nav-item'
+import { motion } from 'framer-motion'
 
 const NAV_ITEMS = [
     {
@@ -30,8 +30,8 @@ const Header = () => {
             <Image
             width={58}
             height={49}
-            src="/images/logo.svg"
-            alt="Logo GB Dev"
+            src='/images/logo.svg'
+            alt='Logo GB Dev'
             />
         </Link>
         <nav className="flex items-center gap-4 sm:gap-10">
@@ -44,4 +44,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header

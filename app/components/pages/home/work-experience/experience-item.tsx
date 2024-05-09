@@ -1,18 +1,18 @@
-"use client";
+'use client'
 
-import { RichText } from "@/app/components/rich-text";
-import TechBadge from "@/app/components/tech-badge";
-import { WorkExperience } from "@/app/types/work-experience";
+import { RichText } from '@/app/components/rich-text'
+import TechBadge from '@/app/components/tech-badge'
+import { WorkExperience } from '@/app/types/work-experience'
 
-import Image from "next/image";
-import { differenceInMonths, differenceInYears, format } from "date-fns";
-import { ptBR } from "date-fns/locale";
-import { motion } from "framer-motion";
-import { fadeUpAnimation, techBadgeAnimation } from "@/app/lib/animations";
+import Image from 'next/image'
+import { differenceInMonths, differenceInYears, format } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
+import { motion } from 'framer-motion'
+import { fadeUpAnimation, techBadgeAnimation } from '@/app/lib/animations'
 
 type ExperienceItemProps = {
-  experience: WorkExperience;
-};
+  experience: WorkExperience
+}
 
 const ExperienceItem = ({ experience }: ExperienceItemProps) => {
   const {
@@ -27,11 +27,11 @@ const ExperienceItem = ({ experience }: ExperienceItemProps) => {
 
   const startDate = new Date(experience.startDate);
 
-  const formattedStartDate = format(startDate, "MMM yyyy", { locale: ptBR });
+  const formattedStartDate = format(startDate, 'MMM yyyy', { locale: ptBR });
 
   const formattedEndDate = endDate
-    ? format(new Date(endDate), "MMM yyyy", { locale: ptBR })
-    : "Até o momento";
+    ? format(new Date(endDate), 'MMM yyyy', { locale: ptBR })
+    : 'Até o momento';
 
   const end = endDate ? new Date(endDate) : new Date();
 
@@ -41,12 +41,12 @@ const ExperienceItem = ({ experience }: ExperienceItemProps) => {
 
   const formattedDuration =
     years > 0
-      ? `${years} ano${years > 1 ? "s" : ""}${
+      ? `${years} ano${years > 1 ? 's' : ''}${
           monthsRemaining > 0
-            ? ` e ${monthsRemaining} mes${monthsRemaining > 1 ? "es" : ""}`
-            : ""
+            ? ` e ${monthsRemaining} mes${monthsRemaining > 1 ? 'es' : ''}`
+            : ''
         }`
-      : `${months} mes${months > 1 ? "es" : ""}`;
+      : `${months} mes${months > 1 ? 'es' : ''}`;
 
   return (
     <motion.div
@@ -71,7 +71,7 @@ const ExperienceItem = ({ experience }: ExperienceItemProps) => {
         <div className="flex flex-col gap-2 text-sm sm:text-base">
           <a
             href={companyUrl}
-            target="_blank"
+            target='_blank'
             className="text-gray-500 hover:text-emerald-500 transition-colors"
           >
             @{companyName}
@@ -99,7 +99,7 @@ const ExperienceItem = ({ experience }: ExperienceItemProps) => {
         </div>
       </div>
     </motion.div>
-  );
-};
+  )
+}
 
 export default ExperienceItem;

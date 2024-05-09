@@ -1,16 +1,16 @@
-"use client";
+'use client'
 
-import Link from "@/app/components/link";
-import TechBadge from "@/app/components/tech-badge";
-import { Project } from "@/app/types/projects";
-import Image from "next/image";
-import { HiArrowNarrowRight } from "react-icons/hi";
-import { motion } from "framer-motion";
-import { fadeUpAnimation, techBadgeAnimation } from "@/app/lib/animations";
+import Link from '@/app/components/link'
+import TechBadge from '@/app/components/tech-badge'
+import { Project } from '@/app/types/projects'
+import Image from 'next/image'
+import { HiArrowNarrowRight } from 'react-icons/hi'
+import { motion } from 'framer-motion'
+import { fadeUpAnimation, techBadgeAnimation } from '@/app/lib/animations'
 
 type ProjectCardProps = {
-  project: Project;
-};
+  project: Project
+}
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
 
@@ -46,8 +46,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           <Image
             width={20}
             height={20}
-            alt=""
-            src="/images/logo.svg"
+            alt='Logo MrDev'
+            src='/images/logo.svg'
           />
           {project.title}
         </motion.h3>
@@ -70,7 +70,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         </div>
         <Link
         href={`/projects/${project.slug}`}
-        target="_blank"
+        target='_blank'
         className="flex justify-center"
         >
           Ver projeto
@@ -78,7 +78,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         </Link>
       </div>
     </motion.div>
-  );
-};
+  )
+}
 
-export default ProjectCard;
+export default ProjectCard

@@ -1,9 +1,9 @@
 'use client'
 
-import { ProjectSection } from "@/app/types/projects"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { fadeUpAnimation } from "@/app/lib/animations"
+import { ProjectSection } from '@/app/types/projects'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
+import { fadeUpAnimation } from '@/app/lib/animations'
 
 type ProjectSectionsProps = {
     sections: ProjectSection[] 

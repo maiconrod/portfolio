@@ -1,26 +1,26 @@
-"use client";
+'use client'
 
-import Button from "@/app/components/button";
-import { CMSIcon } from "@/app/components/cms-icon";
-import { RichText } from "@/app/components/rich-text";
-import TechBadge from "@/app/components/tech-badge";
-import { HomePageInfo } from "@/app/types/page-info";
-import Image from "next/image";
-import { HiArrowNarrowRight } from "react-icons/hi";
-import { motion } from "framer-motion";
-import { techBadgeAnimation } from "@/app/lib/animations";
+import Button from '@/app/components/button'
+import { CMSIcon } from '@/app/components/cms-icon'
+import { RichText } from '@/app/components/rich-text'
+import TechBadge from '@/app/components/tech-badge'
+import { HomePageInfo } from '@/app/types/page-info'
+import Image from 'next/image'
+import { HiArrowNarrowRight } from 'react-icons/hi'
+import { motion } from 'framer-motion'
+import { techBadgeAnimation } from '@/app/lib/animations'
 
 type HeroSectionProps = {
-  homeInfo: HomePageInfo;
-};
+  homeInfo: HomePageInfo
+}
 
 const HeroSection = ({ homeInfo }: HeroSectionProps) => {
   const handleContact = () => {
-    const contactSection = document.querySelector("#contact");
+    const contactSection = document.querySelector('#contact');
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
+      contactSection.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+  }
 
   return (
     <section className="w-full lg:h-[755px] bg-hero-image bg-cover bg-center bg-no-repeat flex flex-col justify-end pb-10 sm:pb-32 py-32 lg:pb-110px">
@@ -86,7 +86,7 @@ const HeroSection = ({ homeInfo }: HeroSectionProps) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 export default HeroSection;

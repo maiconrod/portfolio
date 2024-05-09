@@ -1,5 +1,5 @@
-import { cn } from "@/app/lib/utils"
-import { ButtonHTMLAttributes } from "react"
+import { cn } from '@/app/lib/utils'
+import { ButtonHTMLAttributes } from 'react'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
 

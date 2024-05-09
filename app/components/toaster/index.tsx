@@ -1,32 +1,32 @@
-"use client";
-import { Toaster as ToasterProvider } from "react-hot-toast";
+'use client'
+import { Toaster as ToasterProvider } from 'react-hot-toast'
 
 export const Toaster = () => {
   return (
     <ToasterProvider
-      position="bottom-center"
+      position='bottom-center'
       toastOptions={{
         success: {
           style: {
-            background: "#10b981",
-            color: "#fff",
+            background: '#10b981',
+            color: '#fff',
           },
           iconTheme: {
-            primary: "#fff",
-            secondary: "#10b981",
+            primary: '#fff',
+            secondary: '#10b981',
           },
         },
         error: {
           style: {
-            background: "#ef4444",
-            color: "#fff",
+            background: '#ef4444',
+            color: '#fff',
           },
           iconTheme: {
-            primary: "#fff",
-            secondary: "#ef4444",
+            primary: '#fff',
+            secondary: '#ef4444',
           },
         },
       }}
     />
-  );
-};
+  )
+}

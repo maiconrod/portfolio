@@ -1,11 +1,11 @@
-import type { RichTextContent } from "@graphcms/rich-text-types";
+import type { RichTextContent } from '@graphcms/rich-text-types'
 
 
 export type KnownTech = {
-  iconSvg: string;
-  name: string;
-  startDate: string;
-};
+  iconSvg: string
+  name: string
+  startDate: string
+}
 
 export type ProjectSection = {
   title: string
