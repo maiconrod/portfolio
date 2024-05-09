@@ -55,7 +55,11 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
       {...fadeUpAnimation}
       >
         {project?.githubUrl && (
-          <a href={project.githubUrl} target='_blank'>
+          <a
+          href={project.githubUrl}
+          target='_blank'
+          rel='noreferrer'
+          >
             <Button className="min-w-[180px]">
               <TbBrandGithub size={20} />
               Repositório
@@ -63,7 +67,11 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
           </a>
         )}
         {project.liveProjectUrl && (
-          <a href={project.liveProjectUrl} target='_blank'>
+          <a
+          href={project.liveProjectUrl}
+          target='_blank'
+          rel='noreferrer'
+          >
             <Button className="min-w-[180px]">
               <FiGlobe size={20} />
               Projeto Online

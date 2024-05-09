@@ -58,7 +58,8 @@ const HeroSection = ({ homeInfo }: HeroSectionProps) => {
                 <a
                   href={contact.url}
                   key={`contact-${index}`}
-                  target="_blank"
+                  target='_blank'
+                  rel='noreferrer'
                   className="hover:text-gray-100 transition-colors"
                 >
                   <CMSIcon icon={contact.iconSvg} />

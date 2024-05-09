@@ -11,7 +11,6 @@ import { motion } from 'framer-motion'
 import { fadeUpAnimation } from '@/app/lib/animations'
 
 const contactFormSchema = z.object({
-  //Use Schema para os dados do formulário.
   name: z.string().min(3).max(100),
   email: z.string().email(),
   message: z.string().min(1).max(500),
