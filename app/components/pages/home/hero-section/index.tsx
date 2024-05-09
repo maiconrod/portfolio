@@ -43,7 +43,7 @@ const HeroSection = ({ homeInfo }: HeroSectionProps) => {
                 name={tech.name}
                 key={`intro-tech-${tech.name}`}
                 {...techBadgeAnimation}
-                transition={{ duration: 0.2, delay: index * 0.2 }}
+                transition={{ duration: 0.2, delay: index * 0.1 }}
               />
             ))}
           </div>
@@ -80,7 +80,7 @@ const HeroSection = ({ homeInfo }: HeroSectionProps) => {
               height={404}
               src={homeInfo.profilePicture.url}
               alt="Foto de perfil Maicon Rodrigues"
-              className="w-[300px] h-[300px] lg:w-[420px] lg:h-[404px] mb-6 lg:mb-0 shadow-2xl rounded-lg object-cover"
+              className="w-[300px] h-[300px] lg:w-[420px] lg:h-[404px] mb-6 lg:mb-0 shadow-lg rounded-lg object-cover border-4 border-emerald-900"
             />
           </motion.div>
         </div>

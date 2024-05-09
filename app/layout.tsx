@@ -9,12 +9,12 @@ import { Toaster } from "./components/toaster";
 
 export const metadata = {
   title: {
-    default: 'Home',
-    template: '%s | Maicon Dev'
+    default: 'Home | MR Dev',
+    template: '%s | MR Dev'
   },
   icons: [
     {
-      url: '/favicon.svg'
+      url: '/images/logo.svg'
     }
   ]
 }

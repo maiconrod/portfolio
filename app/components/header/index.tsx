@@ -36,7 +36,7 @@ const Header = () => {
         </Link>
         <nav className="flex items-center gap-4 sm:gap-10">
             {NAV_ITEMS.map(item => (
-                <NavItem {...item} key={item.label}/> //Fazendo assim é o mesmo que: label={label} href={href}
+                <NavItem {...item} key={item.label}/>
             ))}
         </nav>
       </div>

@@ -19,14 +19,14 @@ const ProjectSections = ({sections}: ProjectSectionsProps) => {
             {...fadeUpAnimation}
             transition={{duration: 0.5}}
             >
-                <h2 className="text-2xl md:text-4xl text-gray-300">
+                <h2 className="text-xl md:text-3xl text-gray-300">
                     {section.title}
                 </h2>
                 <Image
                 src={section.image.url}
                 width={1080}
                 height={672}
-                className="w-full aspect-auto rounded-lg object-cover"
+                className="w-[750px] aspect-auto rounded-lg object-cover"
                 alt={`Imagem do Projeto ${section.title}`}
                 unoptimized
                 />

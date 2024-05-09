@@ -31,7 +31,7 @@ const ExperienceItem = ({ experience }: ExperienceItemProps) => {
 
   const formattedEndDate = endDate
     ? format(new Date(endDate), "MMM yyyy", { locale: ptBR })
-    : "o momento";
+    : "Até o momento";
 
   const end = endDate ? new Date(endDate) : new Date();
 
@@ -78,7 +78,7 @@ const ExperienceItem = ({ experience }: ExperienceItemProps) => {
           </a>
           <h4 className="text-gray-300">{role}</h4>
           <span className="text-gray-500">
-            {formattedStartDate} - {formattedEndDate} - {formattedDuration}
+            {formattedStartDate} • {formattedEndDate} • {formattedDuration}
           </span>
           <div className="text-gray-400">
             <RichText content={description.raw} />
