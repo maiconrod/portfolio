@@ -22,7 +22,7 @@ export const HighLightProjects = ({ projects }: HighLightProjectsProps) => {
           </div>
         ))}
 
-        <p className="flex items-center gap-1.5">
+        <p className="flex items-center gap-1.5 md:justify-center">
           <span className="text-gray-400">Se interessou?</span>
           <Link
             href='https://github.com/maiconrod?tab=repositories'

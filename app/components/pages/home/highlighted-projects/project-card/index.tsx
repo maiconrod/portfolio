@@ -23,7 +23,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       transition={{ duration: 0.5 }}
     >
       <motion.div
-        className="w-full h-full sm:h-[400px] lg:w-[420px] lg:min-h-full sm:flex sm:justify-center"
+        className="w-full h-full sm:h-[400px] lg:w-[420px] lg:min-h-full sm:flex sm:justify-center object-contain"
         initial={{ opacity: 0, y: 50, scale: 0.5 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 50, scale: 0.5 }}
@@ -34,7 +34,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           alt={`Thumbnail do projeto ${project.title}`}
           width={420}
           height={304}
-          className="w-full sm:max-w-[520px] h-full object-cover rounded-lg border border-gray-700"
+          className="w-full max-w-[520px] h-full rounded-lg border border-gray-700"
         />
       </motion.div>
       <div className="md:flex-1 lg:py-[18px]">

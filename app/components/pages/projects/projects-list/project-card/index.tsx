@@ -8,15 +8,15 @@ type ProjectCardProps = {
 export const ProjectCard = ({ project }: ProjectCardProps) => {
   const technologies = project.technologies.map(x => x.name).join(', ')
   return (
-    <div className="rounded-lg h-[564px] flex flex-col bg-gray-800 overflow-hidden border-2 border-gray-800 hover:border-emerald-500 opacity-70 hover:opacity-100 pb-3 transition-all group">
-      <div className="w-full  overflow-hidden">
+    <div className="rounded-lg h-[564px] sm:h-[700px] md:h-[750px] sm:max-w-[730px] flex flex-col items-center bg-gray-800 overflow-hidden border-4 border-gray-800 hover:border-emerald-500 opacity-70 hover:opacity-100 pb-3 transition-all group mx-auto">
+      <div className="w-full  overflow-hidden mx-auto">
         <Image
-          width={380}
+          width={300}
           height={200}
           unoptimized
           src={project.thumbnail.url}
           alt={`Thumbnail do projeto ${project.title}`}
-          className="w-full h-full object-cover group-hover:scale-110 duration-500 transition-all"
+          className="w-full h-full object-cover object-center group-hover:scale-110 duration-500 transition-all rounded-lg"
         />
       </div>
       <div className="flex-1 flex flex-col p-8">
