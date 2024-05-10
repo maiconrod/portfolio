@@ -10,7 +10,6 @@ type ProjectProps = {
   }
 }
 
-
 const getProjectDetails = async (slug: string): Promise<ProjectPageData> => {
   const query = `
   query ProjectQuery() {
