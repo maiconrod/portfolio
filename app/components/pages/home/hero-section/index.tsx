@@ -14,7 +14,7 @@ type HeroSectionProps = {
   homeInfo: HomePageInfo
 }
 
-const HeroSection = ({ homeInfo }: HeroSectionProps) => {
+export const HeroSection = ({ homeInfo }: HeroSectionProps) => {
   const handleContact = () => {
     const contactSection = document.querySelector('#contact');
     if (contactSection) {
@@ -89,5 +89,3 @@ const HeroSection = ({ homeInfo }: HeroSectionProps) => {
     </section>
   )
 }
-
-export default HeroSection;

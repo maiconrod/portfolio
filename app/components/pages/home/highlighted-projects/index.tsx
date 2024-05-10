@@ -1,4 +1,4 @@
-import HorizontalDivider from '@/app/components/divider/horizontal'
+import { HorizontalDivider } from '@/app/components/divider/horizontal'
 import { SectionTitle } from '@/app/components/section-title'
 import { ProjectCard } from '../../projects/projects-list/project-card'
 import { Link } from '@/app/components/link'
@@ -9,7 +9,7 @@ type HighLightProjectsProps = {
   projects: Project[]
 }
 
-const HighLightProjects = ({ projects }: HighLightProjectsProps) => {
+export const HighLightProjects = ({ projects }: HighLightProjectsProps) => {
   return (
     <section className="container py-16">
       <SectionTitle subtitle='destaques' title='Projetos em destaque' />
@@ -37,5 +37,3 @@ const HighLightProjects = ({ projects }: HighLightProjectsProps) => {
     </section>
   )
 }
-
-export default HighLightProjects;

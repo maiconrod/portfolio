@@ -3,7 +3,6 @@
 import { RichText } from '@/app/components/rich-text'
 import { TechBadge } from '@/app/components/tech-badge'
 import { WorkExperience } from '@/app/types/work-experience'
-
 import Image from 'next/image'
 import { differenceInMonths, differenceInYears, format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
@@ -14,7 +13,7 @@ type ExperienceItemProps = {
   experience: WorkExperience
 }
 
-const ExperienceItem = ({ experience }: ExperienceItemProps) => {
+export const ExperienceItem = ({ experience }: ExperienceItemProps) => {
   const {
     endDate,
     companyName,
@@ -102,5 +101,3 @@ const ExperienceItem = ({ experience }: ExperienceItemProps) => {
     </motion.div>
   )
 }
-
-export default ExperienceItem;

@@ -5,7 +5,7 @@ import { Button } from '../button'
 import { useCallback, useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-const BackToTop = () => {
+export const BackToTop = () => {
   const [show, setShow] = useState(false)
 
   const scrollToTop = () => {
@@ -45,4 +45,3 @@ const BackToTop = () => {
   );
 };
 
-export default BackToTop

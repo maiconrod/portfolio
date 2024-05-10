@@ -18,7 +18,7 @@ const contactFormSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactFormSchema>
 
-const ContactForm = () => {
+export const ContactForm = () => {
   const {
     handleSubmit,
     register,
@@ -83,5 +83,3 @@ const ContactForm = () => {
     </section>
   )
 }
-
-export default ContactForm

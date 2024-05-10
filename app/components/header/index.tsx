@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import NavItem from './nav-item'
+import { NavItem }from './nav-item'
 import { motion } from 'framer-motion'
 
 const NAV_ITEMS = [
@@ -16,7 +16,7 @@ const NAV_ITEMS = [
     }
 ]
 
-const Header = () => {
+export const Header = () => {
   return (
     <motion.header
     className="absolute top-0 w-full z-10 h-24 flex items-center justify-center"
@@ -43,5 +43,3 @@ const Header = () => {
     </motion.header>
   );
 };
-
-export default Header
