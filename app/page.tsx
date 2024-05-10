@@ -4,6 +4,15 @@ import {KnownTechs} from './components/pages/home/known-techs'
 import { WorkExperience } from './components/pages/home/work-experience'
 import { HomePageData } from './types/page-info'
 import { fetchHygraphQuery } from './utils/fetch-hygraph-query'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  description: 'Olá! Seja bem-vindo ao meu portfólio!',
+  openGraph: {
+    images: ['https://portfolio-mrdev-gamma.vercel.app/images/logo.svg'],
+    authors: ['Maicon Rodrigues']
+  }
+}
 
 const getPageData = async (): Promise<HomePageData> => {
   const query = `
