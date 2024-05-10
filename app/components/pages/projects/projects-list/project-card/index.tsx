@@ -5,7 +5,7 @@ type ProjectCardProps = {
   project: Project
 };
 
-const ProjectCard = ({ project }: ProjectCardProps) => {
+export const ProjectCard = ({ project }: ProjectCardProps) => {
   const technologies = project.technologies.map(x => x.name).join(', ')
   return (
     <div className="rounded-lg h-[564px] flex flex-col bg-gray-800 overflow-hidden border-2 border-gray-800 hover:border-emerald-500 opacity-70 hover:opacity-100 pb-3 transition-all group">
@@ -33,5 +33,3 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     </div>
   )
 }
-
-export default ProjectCard;

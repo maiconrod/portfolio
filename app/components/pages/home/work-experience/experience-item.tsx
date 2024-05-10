@@ -1,7 +1,7 @@
 'use client'
 
 import { RichText } from '@/app/components/rich-text'
-import TechBadge from '@/app/components/tech-badge'
+import { TechBadge } from '@/app/components/tech-badge'
 import { WorkExperience } from '@/app/types/work-experience'
 
 import Image from 'next/image'

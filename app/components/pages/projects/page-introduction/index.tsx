@@ -1,11 +1,11 @@
 'use client'
 
-import Link from '@/app/components/link'
+import { Link } from '@/app/components/link'
 import { SectionTitle } from '@/app/components/section-title'
 import { HiArrowNarrowLeft } from 'react-icons/hi'
 import { motion } from 'framer-motion'
 
-const PageIntroduction = () => {
+export const PageIntroduction = () => {
   return (
     <section className="w-full h-[450px] lg:h-[630px] bg-hero-image bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center px-2">
       <SectionTitle
@@ -33,5 +33,3 @@ const PageIntroduction = () => {
     </section>
   )
 }
-
-export default PageIntroduction;

@@ -1,11 +1,11 @@
 'use client'
 
-import Button from '@/app/components/button'
+import { Button } from '@/app/components/button'
 import { SectionTitle } from '@/app/components/section-title'
-import TechBadge from '@/app/components/tech-badge'
+import { TechBadge } from '@/app/components/tech-badge'
 import { TbBrandGithub } from 'react-icons/tb'
 import { FiGlobe } from 'react-icons/fi'
-import Link from '@/app/components/link'
+import { Link } from '@/app/components/link'
 import { HiArrowNarrowLeft } from 'react-icons/hi'
 import { Project } from '@/app/types/projects'
 import { RichText } from '@/app/components/rich-text'
@@ -16,7 +16,7 @@ type ProjectDetailsProps = {
   project: Project
 }
 
-const ProjectDetails = ({ project }: ProjectDetailsProps) => {
+export const ProjectDetails = ({ project }: ProjectDetailsProps) => {
   return (
     <section className="w-full sm:min-h-[750px] flex flex-col items-center justify-end relative pb-10 sm:pb-24 py-24 px-6 overflow-hidden">
       <motion.div
@@ -87,4 +87,4 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
   )
 }
 
-export default ProjectDetails;
+

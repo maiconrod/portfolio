@@ -1,7 +1,7 @@
 
-import PageIntroduction from '../components/pages/projects/page-introduction'
-import ProjectsList from '../components/pages/projects/projects-list'
-import {  ProjectsPageData } from '../types/page-info'
+import { PageIntroduction } from '../components/pages/projects/page-introduction'
+import { ProjectsList } from '../components/pages/projects/projects-list'
+import { ProjectsPageData } from '../types/page-info'
 import { fetchHygraphQuery } from '../utils/fetch-hygraph-query'
 
 export const metadata = {

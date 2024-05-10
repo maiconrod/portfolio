@@ -9,7 +9,7 @@ type ProjectSectionsProps = {
     sections: ProjectSection[] 
 }
 
-const ProjectSections = ({sections}: ProjectSectionsProps) => {
+export const ProjectSections = ({sections}: ProjectSectionsProps) => {
   return (
     <section className="container my-12 md:my-32 flex flex-col gap-8 md:gap-32">
         {sections.map(section => (
@@ -36,4 +36,3 @@ const ProjectSections = ({sections}: ProjectSectionsProps) => {
   )
 }
 
-export default ProjectSections
