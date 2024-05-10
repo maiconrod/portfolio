@@ -9,7 +9,7 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   description: 'Olá! Seja bem-vindo ao meu portfólio!',
   openGraph: {
-    images: ['https://portfolio-mrdev-gamma.vercel.app/images/logo.svg'],
+    images: ['/images/imageOg.png'],
     authors: ['Maicon Rodrigues']
   }
 }
