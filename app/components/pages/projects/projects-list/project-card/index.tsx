@@ -1,12 +1,12 @@
-import { Project } from '@/app/types/projects'
-import Image from 'next/image'
+import { Project } from "@/app/types/projects";
+import Image from "next/image";
 
 type ProjectCardProps = {
-  project: Project
+  project: Project;
 };
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
-  const technologies = project.technologies.map(x => x.name).join(', ')
+  const technologies = project.technologies.map((x) => x.name).join(", ");
   return (
     <div className="rounded-lg h-[564px] sm:h-[700px] md:h-[750px] sm:max-w-[730px] flex flex-col items-center bg-gray-800 overflow-hidden border-4 border-gray-800 hover:border-emerald-500 opacity-70 hover:opacity-100 pb-3 transition-all group mx-auto">
       <div className="w-full  overflow-hidden mx-auto">
@@ -20,16 +20,24 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
         />
       </div>
       <div className="flex-1 flex flex-col p-8">
-        <strong className="font-medium text-gray-50/90 group-hover:text-emerald-500 transition-all">
-          {project.title}
-        </strong>
+        <div className="flex gap-2">
+        <Image
+            width={20}
+            height={20}
+            alt="Logo MrDev"
+            src="/images/logo.svg"
+          />
+          <strong className="font-medium text-gray-50/90 group-hover:text-emerald-500 transition-all">
+            {project.title}
+          </strong>
+        </div>
         <p className="mt-2 text-gray-400 line-clamp-4">
-         {project.shortDescription}
+          {project.shortDescription}
         </p>
         <span className="text-gray-300 text-sm font-medium block mt-auto truncate py-4">
           {technologies}
         </span>
       </div>
     </div>
-  )
-}
+  );
+};

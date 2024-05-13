@@ -71,7 +71,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
         <Link
         href={`/projects/${project.slug}`}
         target='_blank'
-        className="flex justify-center"
+        className="flex justify-center lg:justify-start"
         >
           Ver projeto
           <HiArrowNarrowRight />
