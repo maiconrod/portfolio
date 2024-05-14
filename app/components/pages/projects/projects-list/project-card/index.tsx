@@ -8,7 +8,7 @@ type ProjectCardProps = {
 export const ProjectCard = ({ project }: ProjectCardProps) => {
   const technologies = project.technologies.map((x) => x.name).join(", ");
   return (
-    <div className="rounded-lg h-[564px] sm:h-[700px] md:h-[750px] sm:max-w-[730px] flex flex-col items-center bg-gray-800 overflow-hidden border-4 border-gray-800 hover:border-emerald-500 opacity-70 hover:opacity-100 pb-3 transition-all group mx-auto">
+    <div className="rounded-lg h-[564px] md:h-[650px] sm:max-w-[730px] flex flex-col items-center bg-gray-800 overflow-hidden border-4 border-gray-800 hover:border-emerald-500 opacity-70 hover:opacity-100 pb-3 transition-all group mx-auto">
       <div className="w-full  overflow-hidden mx-auto">
         <Image
           width={300}
