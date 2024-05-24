@@ -19,8 +19,8 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           className="w-full h-full object-cover object-center group-hover:scale-110 duration-500 transition-all rounded-lg"
         />
       </div>
-      <div className="flex-1 flex flex-col p-8">
-        <div className="flex gap-2">
+      <div className="flex-1 flex flex-col items-center p-8">
+        <div className="w-full flex gap-2 items-center justify-start">
         <Image
             width={20}
             height={20}
@@ -31,10 +31,10 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             {project.title}
           </strong>
         </div>
-        <p className="mt-2 text-gray-400 line-clamp-4">
+        <p className="mt-2 text-gray-400 line-clamp-4 text-start">
           {project.shortDescription}
         </p>
-        <span className="text-gray-300 text-sm font-medium block mt-auto truncate py-4">
+        <span className="text-gray-300 text-sm font-medium block mt-auto py-4 text-center">
           {technologies}
         </span>
       </div>
