@@ -4,8 +4,21 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['media.graphassets.com', 'sa-east-1.graphassets.com']
+    domains: ['media.graphassets.com', 'sa-east-1.graphassets.com'],
   },
-}
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store, max-age=0, must-revalidate',
+          },
+        ],
+      },
+    ];
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
