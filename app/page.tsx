@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Olá! Seja bem-vindo ao meu portfólio!',
   openGraph: {
     images: ['/images/imageOg.png'],
-    authors: ['Maicon Rodrigues']
+    authors: ['Maicon Rodrigues'],
   }
 }
 

@@ -16,7 +16,7 @@ export const metadata = {
     {
       url: '/images/logo.svg'
     },
-  ]
+  ],
 }
 
 const inter = Inter({
