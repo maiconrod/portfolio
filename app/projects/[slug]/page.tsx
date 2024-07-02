@@ -5,7 +5,6 @@ import { fetchHygraphQuery } from '@/app/utils/fetch-hygraph-query'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-
 type ProjectProps = {
   params: {
     slug: string
@@ -42,9 +41,9 @@ const getProjectDetails = async (slug: string): Promise<ProjectPageData> => {
     }
   }
   `
-  const data = fetchHygraphQuery<ProjectPageData>(
+  const data = await fetchHygraphQuery<ProjectPageData>(
     query,
-    1000 * 60 * 60 * 24, // 1 day
+    1000 * 60 * 60 * 24,
   )
 
   return data
@@ -81,6 +80,10 @@ export async function generateMetadata({
 }: ProjectProps): Promise<Metadata> {
   const data = await getProjectDetails(slug)
   const project = data.project
+
+  if (!project || !project.title) {
+    throw new Error(`Project with slug '${slug}' not found or missing title.`)
+  }
 
   return {
     title: project.title,
