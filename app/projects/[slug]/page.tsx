@@ -5,61 +5,55 @@ import { fetchHygraphQuery } from '@/app/utils/fetch-hygraph-query'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
+
 type ProjectProps = {
   params: {
     slug: string
   }
 }
 
-const getProjectDetails = async (slug: string): Promise<ProjectPageData | null> => {
+const getProjectDetails = async (slug: string): Promise<ProjectPageData> => {
   const query = `
-    query ProjectQuery() {
-      project(where: {slug: "${slug}"}) {
-        pageThumbnail {
-          url
-        }
-        thumbnail {
-          url
-        }
-        sections {
-          title
-          image {
-            url
-          }
-        }
-        title
-        shortDescription
-        description {
-          raw
-          text
-        }
-        technologies {
-          name
-        }
-        liveProjectUrl
-        githubUrl
+  query ProjectQuery() {
+    project(where: {slug: "${slug}"}) {
+      pageThumbnail {
+        url
       }
+      thumbnail {
+        url
+      }
+      sections {
+        title
+        image {
+          url
+        }
+      }
+      title
+      shortDescription
+      description {
+        raw
+        text
+      }
+      technologies {
+        name
+      }
+      liveProjectUrl
+      githubUrl
     }
-  `
-  try {
-    const data = await fetchHygraphQuery<ProjectPageData>(query, 1000 * 60 * 60 * 24) // 1 day
-    return data
-  } catch (error) {
-    console.error(`Error fetching project with slug '${slug}':`, error)
-    return null
   }
+  `
+  const data = fetchHygraphQuery<ProjectPageData>(
+    query,
+    1000 * 60 * 60 * 24,
+  )
+
+  return data
 }
 
 export default async function Project({ params: { slug } }: ProjectProps) {
-  const projectData = await getProjectDetails(slug)
+  const { project } = await getProjectDetails(slug)
 
-  if (!projectData || !projectData.project || !projectData.project.title) {
-    return {
-      notFound: true,
-    }
-  }
-
-  const { project } = projectData
+  if (!project?.title) return notFound()
 
   return (
     <>
@@ -85,13 +79,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params: { slug },
 }: ProjectProps): Promise<Metadata> {
-  const projectData = await getProjectDetails(slug)
-
-  if (!projectData || !projectData.project || !projectData.project.title) {
-    throw new Error(`Project with slug '${slug}' not found or missing title.`)
-  }
-
-  const { project } = projectData
+  const data = await getProjectDetails(slug)
+  const project = data.project
 
   return {
     title: project.title,
