@@ -11,48 +11,55 @@ type ProjectProps = {
   }
 }
 
-const getProjectDetails = async (slug: string): Promise<ProjectPageData> => {
+const getProjectDetails = async (slug: string): Promise<ProjectPageData | null> => {
   const query = `
-  query ProjectQuery() {
-    project(where: {slug: "${slug}"}) {
-      pageThumbnail {
-        url
-      }
-      thumbnail {
-        url
-      }
-      sections {
-        title
-        image {
+    query ProjectQuery() {
+      project(where: {slug: "${slug}"}) {
+        pageThumbnail {
           url
         }
+        thumbnail {
+          url
+        }
+        sections {
+          title
+          image {
+            url
+          }
+        }
+        title
+        shortDescription
+        description {
+          raw
+          text
+        }
+        technologies {
+          name
+        }
+        liveProjectUrl
+        githubUrl
       }
-      title
-      shortDescription
-      description {
-        raw
-        text
-      }
-      technologies {
-        name
-      }
-      liveProjectUrl
-      githubUrl
     }
-  }
   `
-  const data = await fetchHygraphQuery<ProjectPageData>(
-    query,
-    1000 * 60 * 60 * 24,
-  )
-
-  return data
+  try {
+    const data = await fetchHygraphQuery<ProjectPageData>(query, 1000 * 60 * 60 * 24) // 1 day
+    return data
+  } catch (error) {
+    console.error(`Error fetching project with slug '${slug}':`, error)
+    return null
+  }
 }
 
 export default async function Project({ params: { slug } }: ProjectProps) {
-  const { project } = await getProjectDetails(slug)
+  const projectData = await getProjectDetails(slug)
 
-  if (!project?.title) return notFound()
+  if (!projectData || !projectData.project || !projectData.project.title) {
+    return {
+      notFound: true,
+    }
+  }
+
+  const { project } = projectData
 
   return (
     <>
@@ -78,12 +85,13 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params: { slug },
 }: ProjectProps): Promise<Metadata> {
-  const data = await getProjectDetails(slug)
-  const project = data.project
+  const projectData = await getProjectDetails(slug)
 
-  if (!project || !project.title) {
+  if (!projectData || !projectData.project || !projectData.project.title) {
     throw new Error(`Project with slug '${slug}' not found or missing title.`)
   }
+
+  const { project } = projectData
 
   return {
     title: project.title,
