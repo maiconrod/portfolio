@@ -5,55 +5,60 @@ import { fetchHygraphQuery } from '@/app/utils/fetch-hygraph-query'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-
 type ProjectProps = {
   params: {
     slug: string
   }
 }
 
-const getProjectDetails = async (slug: string): Promise<ProjectPageData> => {
+const getProjectDetails = async (slug: string): Promise<ProjectPageData | null> => {
   const query = `
-  query ProjectQuery() {
-    project(where: {slug: "${slug}"}) {
-      pageThumbnail {
-        url
-      }
-      thumbnail {
-        url
-      }
-      sections {
-        title
-        image {
+    query ProjectQuery() {
+      project(where: {slug: "${slug}"}) {
+        pageThumbnail {
           url
         }
+        thumbnail {
+          url
+        }
+        sections {
+          title
+          image {
+            url
+          }
+        }
+        title
+        shortDescription
+        description {
+          raw
+          text
+        }
+        technologies {
+          name
+        }
+        liveProjectUrl
+        githubUrl
       }
-      title
-      shortDescription
-      description {
-        raw
-        text
-      }
-      technologies {
-        name
-      }
-      liveProjectUrl
-      githubUrl
     }
-  }
   `
-  const data = fetchHygraphQuery<ProjectPageData>(
-    query,
-    1000 * 60 * 60 * 12,
-  )
 
-  return data
+  try {
+    const data = await fetchHygraphQuery<ProjectPageData>(query, 1000 * 60 * 60 * 24)
+    return data
+  } catch (error) {
+    console.error('Erro ao buscar detalhes do projeto:', error)
+    return null
+  }
 }
 
 export default async function Project({ params: { slug } }: ProjectProps) {
-  const { project } = await getProjectDetails(slug)
+  const projectData = await getProjectDetails(slug)
 
-  if (!project?.title) return notFound()
+  if (!projectData || !projectData.project || !projectData.project.title) {
+    return notFound()
+  }
+
+  const { project } = projectData
 
   return (
     <>
@@ -79,8 +84,13 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params: { slug },
 }: ProjectProps): Promise<Metadata> {
-  const data = await getProjectDetails(slug)
-  const project = data.project
+  const projectData = await getProjectDetails(slug)
+
+  if (!projectData || !projectData.project) {
+    throw new Error(`Projeto não encontrado para slug: ${slug}`)
+  }
+
+  const { project } = projectData
 
   return {
     title: project.title,
